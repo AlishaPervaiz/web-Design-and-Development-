@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pixel Power - Class Web Portal</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: white;
+            overflow: hidden;
+            padding: 10px 30px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .navbar img {
+            float: left;
+            height: 30px;
+            margin-right: 100px;
+        }
+        .manu{
+            float: left;
+            margin-left: 40px;
+            border: 2px solid black;
+            border-radius: 30px;
+            margin-top: 10px;
+            height: 50px;
+            padding: 10px 15px;
+        }
+
+        .navbar a {
+            float: left;
+            padding: 8px 10px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding-bottom: 5px;
+        }
+        .navbar a.active {
+            background-color: #ff914d;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .navbar .contact-btn {
+            float: right;
+            background-color: black;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .intro-section {
+            background-color: #f5f3dc;
+            overflow: hidden;
+            padding: 60px 40px;
+        }
+
+        .intro-text {
+            float: left;
+            width: 50%;
+            padding-left: 60px;
+            padding-top: 40px;
+        }
+
+        .intro-text h1 {
+            font-size: 36px;
+        }
+
+        .intro-text p {
+            font-size: 16px;
+            max-width: 80%;
+        }
+
+        .intro-text .btn {
+            display: inline-block;
+            background-color: #ff914d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .intro-image {
+            float: right;
+            width: 40%;
+        }
+
+        .intro-image img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .quote-section {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 30px;
+            font-weight: 100;
+        }
+
+        .contact-section {
+            background-color: #f5f3dc;
+            overflow: hidden;
+            padding: 30px;
+        }
+
+        .map {
+            float: left;
+            width: 50%;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 500px;
+            border: 0;
+        }
+
+        .form {
+            float: right;
+            width: 45%;
+        }
+
+        .form h2 {
+            font-size: 20px;
+        }
+
+        .form label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .form input, .form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .form button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #ff914d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <img src="C:\Users\dell\Desktop\Lab Task 02\pictures\pic.png" alt="Pixel Power Logo">
+    <div class="manu">
+    <a href="#" class="active">Home</a>
+    <a href="#">Lectures</a>
+    <a href="#">Labs</a>
+    <a href="#">Student Work</a>
+    <a href="#">Resources</a>
+    <a href="#">Blogs</a>
+    </div>
+    <a href="#" class="contact-btn">Contact</a>
+</div>
+
+<div class="intro-section">
+    <div class="intro-text">
+        <h1>Welcome to Our <br>Class Web Portal</h1>
+        <p>This site is part of our practical learning journey in web development. Here, students learn HTML, CSS (including floats), forms, and responsive design by building and contributing to this platform.</p>
+        <a href="#" class="btn">Start Exploring</a>
+    </div>
+    <div class="intro-image">
+        <img src="C:\Users\dell\Desktop\Lab Task 02\pictures\logo.jpg" alt="Students Working">
+    </div>
+</div>
+
+<div class="quote-section">
+    This isn’t just a website — it’s a learning journey. Here,<br> students document what they learn and build.
+</div>
+
+<div class="contact-section">
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26460.644777344537!2d73.68266352592469!3d33.684420237442264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df9511c0c5b6cb%3A0x94cfb3915b7b2f61!2sDepartment%20of%20Software%20Engineering%2C%20University%20of%20Azad%20Jammu%20%26%20Kashmir!5e0!3m2!1sen!2s!4v1614080120123!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div class="form">
+        <h2>Get in Touch with the Instructor</h2>
+        <p>Have questions about lectures, labs, or assignments? Use the form below to contact your instructor or TA. We’re here to support your learning journey.</p>
+        <form>
+            <label>Name:</label>
+            <input type="text" name="name">
+            <label>Email:</label>
+            <input type="email" name="email">
+            <label>Tel:</label>
+            <input type="tel" name="tel">
+            <label>Message:</label>
+            <textarea name="message" rows="4"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="footer">
+    All rights reserved ©2025
+</div>
+
+</body>
+</html>
