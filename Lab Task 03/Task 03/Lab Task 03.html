@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins';
+    }
+    body {
+      background-color: #f5faff;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('home-banner-bg.webp') no-repeat center center/cover;
+      color: white;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(11, 57, 117, 0.6);
+    }
+    .navbar img {
+      height: 30px;
+    }
+    .navbar .links {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .navbar .links a,
+    .navbar .links button {
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .navbar .links .btn-orange {
+      background-color: orange;
+      padding: 5px 15px;
+      border-radius: 4px;
+    }
+    .hero {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background-color: rgba(11, 57, 117, 0.6);
+    }
+    .hero h1 {
+      font-size: 36px;
+    }
+    .hero h1 clr {
+      color: #00a8ff;
+    }
+    .hero p {
+      margin: 10px 0 30px;
+      font-size: 18px;
+    }
+    .hero .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .hero .buttons button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      background-color: #4db2ff;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .stats div h2 {
+      font-size: 24px;
+    }
+
+    /* New Styles for the updated sections */
+    .section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 80px;
+      gap: 50px;
+    }
+
+    .section:nth-child(even) {
+      background-color: #e8f2ff;
+    }
+
+    .section img {
+      width: 50%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-content {
+      width: 50%;
+    }
+
+    .text-content h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #222;
+    }
+    .feature h5{
+      font-size: 18px;
+      margin-bottom: 15px;
+      colour:black;
+    }
+
+    .text-content p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 20px;
+    }
+ 
+    .text-content a {
+      color: #007bff; 
+      text-decoration:none;
+    }
+
+    .features-list {
+      margin-bottom: 20px;
+    }
+
+    .features-list li {
+      list-style: none;
+      margin-bottom: 10px;
+      display: flex;
+      font-size:13px ;
+      align-items: center;
+    }
+  
+    .features-list li::before {
+      content: '✔';
+      background-color: #007bff;
+      color: white; 
+      border-radius: 3px;
+      margin-right: 10px;
+  
+    }
+
+    button {
+      color: white;
+      background-color: #007bff;
+      background-color: #007bff;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block; 
+    }
+   
+
+    /* Support Section */
+    .support-section {
+      text-align: center;
+      padding: 60px 40px;
+      background: #fff;
+    }
+
+    .support-section h2 {
+      margin-bottom: 40px;
+    }
+
+    .support-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .support-item {
+      flex: 1;
+      min-width: 200px;
+      max-width: 280px;
+    }
+
+    .support-item img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    .support-item h4 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .support-item p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Subscription Section */
+    h2.subscription-title {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 32px;
+    }
+
+    p.sub-heading {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #555;
+    }
+
+    .plans {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0 40px 60px;
+    }
+
+    .plan {
+      background: #fff;
+      border: 1px solid #dbe9ff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 350px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .plan h3 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .plan .price {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .plan ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .plan ul li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+      font-size: 13px;
+    }
+
+    .plan ul li::before {
+      content: '✔';
+      color: white;
+      background-color: #007bff;
+      border-radius: 3px;
+      position: absolute;
+      left: 0;
+    }
+
+    .plan button {
+      margin-top: 20px;
+      padding: 10px 16px;
+      background-color: #1a73e8;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #3fa9f5;
+      color: white;
+      padding: 40px 20px 20px;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 30px;
+    }
+
+    .footer-col {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .footer-col img.logo {
+      height: 35px;
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-col li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col li::before {
+      content: '➜]';
+      margin-right: 8px;
+    }
+    .social-review-section {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding-top: 6px;
+    }
+
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      background-color: white;
+      border-radius: 10px;
+      padding: 5px;
+    }
+
+    .review-text {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .review-text a {
+      color: white;
+      font-size: 12px;
+    }  
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 20px;
+      margin-top: 30px;
+    }
+
+    .footer-logos {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logos img {
+      height: 25px;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+        padding: 40px 20px;
+      }
+      
+      .section img, 
+      .text-content {
+        width: 100%;
+      }
+      
+      .footer-top {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-col {
+        margin-bottom: 30px;
+      }
+    }
+    #btn1
+    {
+      color: white;
+      background-color: #007bff;
+      background-color: #007bff;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block; 
+
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section  -->
+  <header>
+    <div class="navbar">
+      <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\logo-client-ramp1.webp" alt="Client Ramp Logo">
+      <div class="links">
+        <a href="#">Support</a>
+        <a href="#">FAQ</a>
+        <a href="#">Contact Us</a>
+        <button class="btn-orange">Get Started Now→</button>
+      </div>
+    </div>
+    <div class="hero">
+      <h1>Manage Your <br><clr><strong>Clients and Projects</strong></clr></h1>
+      <p>All-in-One CRM, Project Management and Client Relationship Tools</p>
+      <div class="buttons">
+        <button>Get Started Now</button>
+        <button>Sign In</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Stats Section -->
+  <div class="stats">
+    <div><h2>2,486</h2><p>Subscribers</p></div>
+    <div><h2>645,089</h2><p>Open Projects</p></div>
+    <div><h2>152,834</h2><p>Finished Projects</p></div>
+    <div><h2>32,392</h2><p>Project Members</p></div>
+  </div>
+
+  <!-- Section 1 - Manage Projects -->
+  <div class="section">
+    <div class="text-content">
+      <h2>Manage Projects</h2>
+      <p>Stay organized with a centralized <a href="#">platform for project creation</a>, task assignment, and deadline tracking.</p>
+      <div class="feature">
+        <h5>Key Features</h5>
+      </div>
+      <ul class="features-list">
+        <li>Assign tasks to team members</li>
+        <li>Monitor progress and set milestones</li>
+        <li>Log every action and ensure timely delivery</li>
+        <li>Private label for your website and users</li>
+      </ul>
+      <a href="#" id="btn1">Get Started Now →</a>
+    </div>
+    <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\manage-projects.webp" alt="Manage Projects"/>
+  </div>
+
+  <!-- Section 2 - Manage Clients -->
+  <div class="section">
+    <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\manage-clients.webp" alt="Manage Clients"/>
+    <div class="text-content">
+      <h2>Manage Clients</h2>
+      <p>Easily add, update, and <a href="#">track client details</a> for any stage of a project with seamless communication.</p>
+      <div class="feature">
+        <h5>Key Features</h5>
+      </div>
+      <ul class="features-list">
+        <li>Track contact details, project history, and invoices</li>
+        <li>Manage meetings, calls, and notes</li>
+        <li>Share client details with your team securely</li>
+      </ul>
+      <a href="#" id="btn1">Get Started Now →</a>
+    </div>
+  </div>
+
+  <!-- Section 3 - Manage Quotations -->
+  <div class="section">
+    <div class="text-content">
+      <h2>Manage Quotations</h2>
+      <p><a href="#">Create and track project quotes</a> with ease by organizing your project quotations.</p>
+      <div class="feature">
+        <h5>Key Features</h5>
+      </div>
+      <ul class="features-list">
+        <li>Generate customizable PDFs</li>
+        <li>Monitor quote statuses and approvals</li>
+        <li>Simplify follow-ups for better deal closure</li>
+      </ul>
+      <a href="#" id="btn1">Get Started Now →</a>
+    </div>
+    <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\manage-qoutations.webp" alt="Manage Quotations"/>
+  </div>
+
+  <!-- Section 4 - Manage Invoices -->
+  <div class="section">
+    <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\manage-invoices.webp" alt="Manage Invoices"/>
+    <div class="text-content">
+      <h2>Manage Invoices</h2>
+      <p>Simplify billing processes and get paid faster by <a href="#">managing project invoices</a> efficiently.</p>
+      <div class="feature">
+        <h5>Key Features</h5>
+      </div>
+      <ul class="features-list">
+        <li>Create tailored invoices with your branding</li>
+        <li>Integrate PayPal for seamless payments</li>
+        <li>Enjoy real-time payment tracking</li>
+        <li>Integrate with your QuickBooks account</li>
+      </ul>
+      <a href="#" id="btn1">Get Started Now →</a>
+    </div>
+  </div>
+
+  <!-- Section 5 - Administration -->
+  <div class="section">
+    <div class="text-content">
+      <h2>Administration</h2>
+      <p>Take control of <a href="#">managing user settings</a>, user permissions, subscriptions and system security.</p>
+      <div class="feature">
+        <h5>Key Features</h5>
+      </div>
+      <ul class="features-list">
+        <li>Set user roles and permissions</li>
+        <li>Manage sensitive data with confidence</li>
+        <li>Adapt as your business grows</li>
+      </ul>
+      <a href="#" id="btn1">Get Started Now →</a>
+    </div>
+    <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\adminstration.webp" alt="Administration"/>
+  </div>
+
+  <!-- Section 6 - Messaging and Video -->
+  <div class="section">
+    <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\manage-video.webp" alt="Messaging and Video"/>
+    <div class="text-content">
+      <h2>Messaging and Video</h2>
+      <p>Improve <a href="#">client communication</a> with our real-time instant messaging and video tools.</p>
+      <div class="feature">
+        <h5>Key Features</h5>
+      </div>
+      <ul class="features-list">
+        <li>Group and one-on-one chats</li>
+        <li>Instant file sharing</li>
+        <li>Host and record video meetings</li>
+      </ul>
+      <a href="#" id="btn1">Get Started Now →</a>
+    </div>
+  </div>
+
+  <!-- Support Section -->
+  <div class="support-section">
+    <h2>Our Support</h2>
+    <div class="support-features">
+      <div class="support-item">
+        <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\noun-support-4831710.webp" alt="Support Icon">
+        <h4>Support When You Need It</h4>
+        <p>Get guidance from our dedicated support team.</p>
+      </div>
+      <div class="support-item">
+        <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\noun-assistance-6762704.webp" alt="Assistance Icon">
+        <h4>Personalized Assistance</h4>
+        <p>Tailored solutions for your unique business needs.</p>
+      </div>
+      <div class="support-item">
+        <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\noun-24hr-helpline-3309604.webp" alt="24/7 Icon">
+        <h4>Available Anytime</h4>
+        <p>24/7/365 support to keep your business running smoothly.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subscription Section -->
+  <h2 class="subscription-title">Subscription Plan</h2>
+  <p class="sub-heading">Choose the Perfect Plan for Your Business</p>
+
+  <div class="plans">
+    <div class="plan">
+      <h3>Trial Plan</h3>
+      <p class="price">Price: $0/month</p>
+      <ul>
+        <li>Manage up to 5 clients</li>
+        <li>Access to basic project management tools</li>
+        <li>Create and send up to 5 quotes per month</li>
+        <li>Generate up to 5 invoices per month</li>
+        <li>Limited chat functionality (basic messaging only)</li>
+        <li>Basic reporting and analytics</li>
+        <li>Community support</li>
+      </ul>
+      <button>Order Now</button>
+    </div>
+
+    <div class="plan">
+      <h3>Starter Plan</h3>
+      <p class="price">Price: $20/month</p>
+      <ul>
+        <li>Manage up to 100 clients</li>
+        <li>Access all project management features</li>
+        <li>Unlimited quotes and invoices</li>
+        <li>Integration with PayPal and QuickBooks</li>
+        <li>Full chat functionality (file sharing and video)</li>
+        <li>Advanced reporting and analytics</li>
+        <li>Email support</li>
+      </ul>
+      <button>Order Now</button>
+    </div>
+
+    <div class="plan">
+      <h3>Pro Plan</h3>
+      <p class="price">Price: $50/month</p>
+      <ul>
+        <li>Manage up to 500 clients</li>
+        <li>All features from the Starter Plan</li>
+        <li>Customizable workflows and templates</li>
+        <li>Mobile app with real-time sync</li>
+        <li>Priority email and chat support</li>
+        <li>Data export (CSV/PDF)</li>
+        <li>Team performance insights and advanced analytics</li>
+      </ul>
+      <button>Order Now</button>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-col">
+        <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\logo-client-ramp1.webp" alt="Client Ramp" class="logo">
+      </div>
+      <div class="footer-col">
+        <ul>
+          <li><a href="#">Get Started Now</a></li>
+          <li><a href="#">Sign In</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="social-review-section">
+        <p>⚲ 105 Tryon Village Drive Suite 303 #27 Cary, NC 27518</p>
+        <div class="social-icons">
+          <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\fb.png" alt="Facebook">
+          <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\linkedin.png" alt="LinkedIn">
+          <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\x.PNG" alt="Twitter">
+          <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\instagram.png" alt="Instagram">
+          <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\youtube.png" alt="YouTube">
+          <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\p.png" alt="Pinterest">
+          <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\tiktok.png" alt="TikTok">
+        </div>
+        <div class="review-text">
+          <p>Write us a review at:<br>
+            <a href="#">Source Forge</a>, 
+            <a href="#">Capterra</a>, 
+            <a href="#">G2</a>, 
+            <a href="#">Product<br> Hunt</a>, 
+            <a href="#">Slashdot</a>, 
+            <a href="#">Crozdesk</a> and 
+            <a href="#">Trustpilot</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 ClientRamp - All rights reserved. Use of this website constitutes acceptance of our Subscription Agreement, User Agreement, Privacy Policy and Cookie Policy.</p>
+      <p>ClientRamp trademarks, product names, logos and other marks and designs are trademarks of OrganicRankings.com, LLC. or its subsidiaries and may not be used without permission.</p>
+      <div class="footer-logos">
+        <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\capterra.png" alt="Capterra">
+        <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\producthunt.png" alt="Product Hunt">
+        <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\g2crowd.png" alt="G2 Crowd">
+        <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\techradar.png" alt="TechRadar">
+        <img src="C:\Users\dell\Desktop\Lab Task 03\Task 03\sourceforge.png" alt="SourceForge">
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
