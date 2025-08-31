@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Three Colorful Dots – Up/Down Animation</title>
+  <style>
+    :root {
+      --size: 48px;           /* dot diameter */
+      --gap: 16px;            /* space between dots */
+      --amplitude: 22px;      /* how far the dots travel vertically */
+      --duration: 0.9s;       /* animation speed */
+      --bg: #0b0f14;          /* page background */
+    }
+
+    /* Page layout */
+    html, body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    }
+
+    /* White container */
+    .container {
+      background: #ffffff;
+      padding: 280px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.2);
+    }
+
+    /* Dot row */
+    .dots {
+      display: flex;
+      align-items: flex-end;
+      gap: var(--gap);
+    }
+
+    /* A single dot */
+    .dot {
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background: var(--color, #ff6a00); /* solid color */
+      box-shadow:
+        0 0 10px rgba(255,255,255,.15) inset,
+        0 8px 24px rgba(0,0,0,.35),
+        0 0 24px var(--glow, #ffd50066);
+      animation: bounce var(--duration) ease-in-out infinite;
+      will-change: transform, opacity;
+    }
+
+    /* Stagger the motion */
+    .dot:nth-child(1) { animation-delay: 0s; }
+    .dot:nth-child(2) { animation-delay: calc(var(--duration) / 6); }
+    .dot:nth-child(3) { animation-delay: calc(var(--duration) / 3); }
+
+    /* Colors */
+    .dot--a { --color: #ff0000; --glow: #f0401c88; }  /* Orange */
+    .dot--b { --color: #2be243; --glow: #97d8ab88; }  /* Purple */
+    .dot--c { --color: #0004ff; --glow: #565eb888; }  /* Blue */
+
+    @keyframes bounce {
+      0%, 100% { 
+        transform: translateY(0) scale(1);
+        opacity: 1;   /* normal color at bottom */
+      }
+      50% {
+        transform: translateY(calc(-1 * var(--amplitude))) scale(0.96, 1.04);
+        opacity: 0.5; /* faded when up */
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .dot { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- White container -->
+  <div class="container">
+    <div class="dots" aria-label="Three colorful loading dots moving up and down" role="img">
+      <div class="dot dot--a"></div>
+      <div class="dot dot--b"></div>
+      <div class="dot dot--c"></div>
+    </div>
+  </div>
+</body>
+</html>
