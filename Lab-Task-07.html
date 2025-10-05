@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katora - Premium Jewelry Collection</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #d4af37;
+            --secondary-color: #1a1a1a;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --accent-color: #e8d9b4;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .top-bar {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 0;
+            font-size: 0.85rem;
+        }
+        
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .top-bar a:hover {
+            color: var(--primary-color);
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+        
+        .navbar {
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 0.5rem 1.2rem;
+            position: relative;
+        }
+        
+        .navbar-nav .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 1.2rem;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover:after,
+        .navbar-nav .nav-link.active:after {
+            width: calc(100% - 2.4rem);
+        }
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .hero-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-gold {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 0;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline-gold {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 0;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-gold:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .newsletter-section {
+            background-color: var(--light-color);
+            padding: 80px 0;
+        }
+        
+        .newsletter-section h2 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .newsletter-section p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form .form-control {
+            border-radius: 0;
+            padding: 14px 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .newsletter-form .btn-gold {
+            border-radius: 0;
+            padding: 14px 30px;
+        }
+        
+        .product-card {
+            border: none;
+            margin-bottom: 30px;
+            transition: transform 0.4s, box-shadow 0.4s;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .product-card .card-img-top {
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+        .product-card .card-body {
+            padding: 1.8rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        .product-card .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary-color);
+            min-height: 2.8rem;
+        }
+        
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        .original-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 1rem;
+            margin-right: 8px;
+        }
+        
+        .sale-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #dc3545;
+            color: white;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .new-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #28a745;
+            color: white;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .category-title {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 2px solid var(--accent-color);
+            position: relative;
+        }
+        
+        .category-title:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer h5 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .cookie-notice {
+            background-color: rgba(0,0,0,0.85);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.5s ease;
+        }
+        
+        .cookie-hidden {
+            transform: translateY(100%);
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .mega-menu {
+            width: 100%;
+            left: 0;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 2px solid var(--primary-color);
+        }
+        
+        .mega-menu .row {
+            margin: 0;
+        }
+        
+        .mega-menu h5 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .mega-menu h5:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .mega-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .mega-menu ul li {
+            margin-bottom: 12px;
+        }
+        
+        .mega-menu ul li a {
+            color: var(--dark-color);
+            transition: all 0.3s;
+            padding: 5px 0;
+            display: block;
+        }
+        
+        .mega-menu ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .pagination .page-link {
+            color: var(--dark-color);
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .pagination .page-link:hover {
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .hero-section {
+                padding: 100px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <span>Get UPTO 40% OFF on your 1st order</span>
+                    <a href="#" class="ms-3">More details</a>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span>English</span>
+                    <span class="mx-2">|</span>
+                    <span>USD</span>
+                    <span class="mx-2">|</span>
+                    <a href="#">Welcome User</a>
+                    <span class="mx-2">|</span>
+                    <a href="#">My Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">Katora</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            SHOP
+                        </a>
+                        <div class="dropdown-menu mega-menu" aria-labelledby="shopDropdown">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h5>BY COLLECTION</h5>
+                                        <ul>
+                                            <li><a href="#">Wedding Collection</a></li>
+                                            <li><a href="#">Engagement Collection</a></li>
+                                            <li><a href="#">Anniversary Collection</a></li>
+                                            <li><a href="#">Bridal Collection</a></li>
+                                            <li><a href="#">Evening Collection</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5>BY MATERIAL</h5>
+                                        <ul>
+                                            <li><a href="#">Gold Jewelry</a></li>
+                                            <li><a href="#">Silver Jewelry</a></li>
+                                            <li><a href="#">Platinum Jewelry</a></li>
+                                            <li><a href="#">Diamond Jewelry</a></li>
+                                            <li><a href="#">Pearl Jewelry</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5>BY OCCASION</h5>
+                                        <ul>
+                                            <li><a href="#">Everyday Wear</a></li>
+                                            <li><a href="#">Special Events</a></li>
+                                            <li><a href="#">Gift Ideas</a></li>
+                                            <li><a href="#">Seasonal Collection</a></li>
+                                            <li><a href="#">Limited Edition</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">PRODUCT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">PAGES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CONTACT</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Search Products..." aria-label="Search">
+                        <button class="btn btn-outline-dark" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Elegant Jewelry Collection</h1>
+            <p>Discover our exclusive range of premium jewelry crafted with precision and passion. Timeless pieces for every occasion.</p>
+            <a href="#" class="btn btn-gold">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container text-center">
+            <h2>Sign Up for Our Newsletter</h2>
+            <p>Be the first to learn about our latest trends and get exclusive offers.</p>
+            <form class="newsletter-form">
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Enter Your Email Address..." aria-label="Email">
+                    <button class="btn btn-gold" type="submit">SUBSCRIBE</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Products</h2>
+                <p>Discover our handpicked selection of exquisite jewelry pieces</p>
+            </div>
+            
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Crystal Wedding Ring">
+                            <span class="sale-badge">SALE</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Crystal Wedding Ring</h5>
+                            <p class="product-price">$285</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Austrian Crystal Ring">
+                            <span class="sale-badge">SALE</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Austrian Crystal Ring</h5>
+                            <p class="product-price"><span class="original-price">$450</span> $285</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1588444650700-6c7f0c89d36b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Zircon Engagement Ring">
+                            <span class="new-badge">NEW</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Zircon Engagement Ring</h5>
+                            <p class="product-price">$110</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Crystal Water Drop Earrings">
+                            <span class="featured-badge">FEATURED</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Crystal Water Drop Earrings</h5>
+                            <p class="product-price"><span class="original-price">$120</span> $85</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-gold">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Page Content -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="category-title">Jewelry Collection</h3>
+                <div class="d-flex align-items-center">
+                    <span class="me-2">Sort by:</span>
+                    <select class="form-select form-select-sm" style="width: auto;">
+                        <option selected>Popular Items</option>
+                        <option value="1">Newest First</option>
+                        <option value="2">Price: Low to High</option>
+                        <option value="3">Price: High to Low</option>
+                        <option value="4">Best Sellers</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Product 5 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Diamond Necklace">
+                            <span class="new-badge">NEW</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Diamond Necklace</h5>
+                            <p class="product-price">$1200</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Pearl Bracelet">
+                            <span class="featured-badge">FEATURED</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Pearl Bracelet</h5>
+                            <p class="product-price">$350</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1588444650700-6c7f0c89d36b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Gold Earrings">
+                            <span class="sale-badge">SALE</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Gold Earrings</h5>
+                            <p class="product-price"><span class="original-price">$180</span> $145</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Sapphire Ring">
+                            <span class="new-badge">NEW</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Sapphire Ring</h5>
+                            <p class="product-price">$890</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 9 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Emerald Bracelet">
+                            <span class="sale-badge">SALE</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Emerald Bracelet</h5>
+                            <p class="product-price"><span class="original-price">$750</span> $599</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 10 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Ruby Pendant">
+                            <span class="featured-badge">FEATURED</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Ruby Pendant</h5>
+                            <p class="product-price">$420</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 11 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Gold Chain">
+                            <span class="sale-badge">SALE</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Gold Chain</h5>
+                            <p class="product-price"><span class="original-price">$320</span> $250</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 12 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1588444650700-6c7f0c89d36b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Silver Bracelet">
+                            <span class="new-badge">NEW</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Silver Bracelet</h5>
+                            <p class="product-price">$180</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 13 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Platinum Ring">
+                            <span class="featured-badge">FEATURED</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Platinum Ring</h5>
+                            <p class="product-price">$950</p>
+                            <a href="#" class="btn btn-outline-gold w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Product pagination" class="mt-5">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="logo mb-3">Katora</h3>
+                    <p class="mb-4">Premium jewelry collection crafted with precision and passion. Discover elegant pieces for every occasion.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Customer Care</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Jewelry Street, NY 10001</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@katora.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> Mon-Fri: 9AM-6PM EST</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center pt-4 border-top border-secondary">
+                <p>&copy; 2023 Katora. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Notice -->
+    <div class="cookie-notice" id="cookieNotice">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p class="mb-0">This site uses cookies. By continuing to browse the site you are agreeing to our use of cookies. Review our cookies information for more details.</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <button class="btn btn-gold" id="cookieAccept">OK, I AGREE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Cookie notice functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieNotice = document.getElementById('cookieNotice');
+            const cookieAccept = document.getElementById('cookieAccept');
+            
+            // Check if user has already accepted cookies
+            if (!localStorage.getItem('cookiesAccepted')) {
+                // Show the cookie notice if not already accepted
+                cookieNotice.classList.remove('cookie-hidden');
+            }
+            
+            // When user clicks "OK, I AGREE"
+            cookieAccept.addEventListener('click', function() {
+                // Hide the cookie notice with animation
+                cookieNotice.classList.add('cookie-hidden');
+                
+                // Store acceptance in localStorage to remember user's choice
+                localStorage.setItem('cookiesAccepted', 'true');
+            });
+        });
+    </script>
+</body>
+</html>
