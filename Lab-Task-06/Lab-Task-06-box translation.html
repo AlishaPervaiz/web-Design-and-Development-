@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Movement Animation</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .box {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border-radius: 0;
+      animation: moveBox 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes moveBox {
+      0% {
+        bottom: 100px;
+        left: 0;
+        background-color: red;
+        border-radius: 20%;
+      }
+
+      25% {
+        bottom: 100px;
+        left: 400px;
+        background-color: blue;
+        border-radius: 40%;
+      }
+
+      50% {
+        bottom: 450px;
+        left: 400px;
+        background-color: green;
+        border-radius: 50%;
+      }
+
+      75% {
+        bottom: 450px;
+        left: 0;
+        background-color: orange;
+        border-radius: 0%;
+      }
+
+      100% {
+        bottom: 100px;
+        left: 0;
+        background-color: red;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>
