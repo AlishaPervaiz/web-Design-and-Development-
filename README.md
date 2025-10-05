@@ -7,3 +7,4 @@ Lab Task 05:https://raw.githack.com/AlishaPervaiz/web-Design-and-Development-/ma
 
 Lab Task 07:https://raw.githack.com/AlishaPervaiz/web-Design-and-Development-/main/Lab-Task-07.html
 Lab Task 09:https://raw.githack.com/AlishaPervaiz/web-Design-and-Development-/main/Lab-Task-09.html
+Lab-Task-11&12:https://raw.githack.com/AlishaPervaiz/web-Design-and-Development-/tree/main/Lab-Task_11&12
